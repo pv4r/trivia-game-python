@@ -17,5 +17,10 @@
 - 8e7c646: Creacion de la clase Quiz en `trivia.py`
 - de275a6: Creacion de la funcion run_quiz en `trivia.py`
 
-
+## [Unreleased]
+### Added
+- a2a4dc1: Se agrego un test para validar el sistema de puntuacion
+- 4126959: Se definio la logica para las 10 rondas
+- bf4ac97: Implementacion del método `answer_question` en la clase Quiz
+- a28aeba: Se incluyeron los atributos `correct_answers` e `incorrect_answers` en la clase Quiz
 
