@@ -52,11 +52,15 @@ def run_quiz():
 
     while quiz.current_question_index < 10:
         question = quiz.get_next_question()
-        print(f"Pregunta {quiz.current_question_index}: {question.description}")
-        for idx, option in enumerate(question.options):
-            print(f"{idx + 1}) {option}")
-            
+        if question:
+            print(f"Pregunta {quiz.current_question_index}: {question.description}")
+            for idx, option in enumerate(question.options):
+                print(f"{idx + 1}) {option}")
+            answer = input("Tu respuesta: ")
+        else:
+            break
         print()
+
     print("Juego terminado.")
     print(f"Preguntas contestadas: 0")
     print(f"Respuestas correctas: 0")
