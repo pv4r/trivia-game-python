@@ -11,6 +11,8 @@ class Quiz:
     def __init__(self):
         self.questions = []
         self.current_question_index = 0
+        self.correct_answers = 0
+        self.incorrect_answers = 0
 
     def add_question(self, question):
         self.questions.append(question)
@@ -21,6 +23,14 @@ class Quiz:
             self.current_question_index += 1
             return question
         return None
+
+    def answer_question(self,question, answer):
+        if question.is_correct(answer):
+            self.correct_answers += 1
+            return True
+        else:
+            self.incorrect_answers += 1
+            return False
 
 def run_quiz():
     print("Bienvenido al juego de Trivia!")
@@ -42,11 +52,15 @@ def run_quiz():
 
     while quiz.current_question_index < 10:
         question = quiz.get_next_question()
-        print(f"Pregunta {quiz.current_question_index}: {question.description}")
-        for idx, option in enumerate(question.options):
-            print(f"{idx + 1}) {option}")
-            
+        if question:
+            print(f"Pregunta {quiz.current_question_index}: {question.description}")
+            for idx, option in enumerate(question.options):
+                print(f"{idx + 1}) {option}")
+            answer = input("Tu respuesta: ")
+        else:
+            break
         print()
+
     print("Juego terminado.")
     print(f"Preguntas contestadas: 0")
     print(f"Respuestas correctas: 0")
