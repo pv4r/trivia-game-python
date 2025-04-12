@@ -24,6 +24,14 @@ class Quiz:
             return question
         return None
 
+    def answer_question(self,question, answer):
+        if question.is_correct(answer):
+            self.correct_answers += 1
+            return True
+        else:
+            self.incorrect_answers += 1
+            return False
+
 def run_quiz():
     print("Bienvenido al juego de Trivia!")
     print("Responde las siguientes preguntas seleccionando el número de la opción correcta.")
