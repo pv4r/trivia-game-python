@@ -237,6 +237,14 @@ def run_quiz():
         else:
             print(f"Respuesta incorrecta. La respuesta correcta era: {question.correct_answer}\n")
 
+        # Ajustamos la dificultad según la racha de respuestas correctas o incorrectas
+        if quiz.correct_streak_counter >= 2 and quiz.difficulty != 'dificil':
+            quiz.adjust_difficulty("up")
+            print(f"¡Has subido de dificultad! Ahora es {quiz.difficulty}.\n")
+        elif quiz.incorrect_streak_counter >= 2 and quiz.difficulty != 'facil':
+            quiz.adjust_difficulty("down")
+            print(f"¡Has bajado de dificultad! Ahora es {quiz.difficulty}.\n")
+
     print("Juego terminado.")
     show_results(quiz)
 
