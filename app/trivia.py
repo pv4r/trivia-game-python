@@ -1,19 +1,36 @@
 class Question:
-    def __init__(self, description, options, correct_answer):
+    def __init__(self, description, options, correct_answer, difficulty):
         self.description = description
         self.options = options
         self.correct_answer = correct_answer
+        self.difficulty = difficulty
 
     def is_correct(self, answer):
         return self.correct_answer == answer
 
 class Quiz:
-    def __init__(self):
+    def __init__(self, easy_questions, medium_questions, hard_questions):
         self.questions = []
         self.current_question_index = 0
-        self.correct_answers = 0
-        self.incorrect_answers = 0
+
+        self.difficulty = 'media' # Atributo para la dificultad actual del quiz
+
         self.questions_answered = 0 # Atributo para contar las preguntas respondidas
+
+        self.correct_answers = 0
+        self.correct_streak = 0 # Racha actual de respuestas correctas
+        self.max_correct_streak = 0  # Máxima racha de respuestas correctas
+        self.correct_streak_counter = 0 # Contador de racha de respuestas correctas (si llega a 2, sube la dificultad)
+
+        self.incorrect_answers = 0
+        self.incorrect_streak = 0 # Racha actual de respuestas incorrectas
+        self.incorrect_streak_counter = 0 # Contador de racha de respuestas incorrectas (si llega a 2, baja la dificultad)
+
+        # Inicializamos las preguntas de cada dificultad
+        self.easy_questions = easy_questions.copy()
+        self.medium_questions = medium_questions.copy()
+        self.hard_questions = hard_questions.copy()
+
 
     def add_question(self, question):
         self.questions.append(question)
