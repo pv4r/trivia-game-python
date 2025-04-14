@@ -36,6 +36,18 @@ class Quiz:
         self.questions.append(question)
 
     def get_next_question(self):
+        difficulty = self.difficulty
+
+        if difficulty == 'facil':
+            new_question = self.easy_questions.pop() 
+        elif difficulty == 'media':
+            new_question = self.medium_questions.pop()
+        elif difficulty == 'dificil':
+            new_question = self.hard_questions.pop()
+
+        # Añadir la nueva pregunta a la lista de preguntas
+        self.add_question(new_question)
+
         if self.current_question_index < len(self.questions):
             question = self.questions[self.current_question_index]
             self.current_question_index += 1
