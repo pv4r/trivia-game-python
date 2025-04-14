@@ -237,6 +237,10 @@ def run_quiz():
         else:
             print(f"Respuesta incorrecta. La respuesta correcta era: {question.correct_answer}\n")
 
+        # Si ya estamos en la última pregunta, no ajustamos la dificultad
+        if quiz.current_question_index == 10:
+            break
+
         # Ajustamos la dificultad según la racha de respuestas correctas o incorrectas
         if quiz.correct_streak_counter >= 2 and quiz.difficulty != 'dificil':
             quiz.adjust_difficulty("up")
