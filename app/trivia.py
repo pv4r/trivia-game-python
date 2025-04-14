@@ -59,10 +59,38 @@ class Quiz:
 
         if question.is_correct(answer):
             self.correct_answers += 1
+            self.correct_streak += 1
+            self.correct_streak_counter += 1
+            self.max_correct_streak = max(self.max_correct_streak, self.correct_streak) # Actualizar la máxima racha
+
+            self.incorrect_streak = 0
+            self.incorrect_streak_counter = 0
+
             return True
         else:
             self.incorrect_answers += 1
+            self.incorrect_streak += 1
+            self.incorrect_streak_counter += 1
+
+            self.correct_streak = 0
+            self.correct_streak_counter = 0
+
             return False
+
+    def adjust_difficulty(self, direction):
+        if direction == "up":
+            if self.difficulty == 'facil': # Cambio a dificultad 'media'
+                self.difficulty = 'media'
+            elif self.difficulty == 'media': # Cambio a dificultad 'dificil'
+                self.difficulty = 'dificil'
+            self.correct_streak_counter = 0 # Resetear el contador de racha
+
+        elif direction == "down":
+            if self.difficulty == 'dificil': # Cambio a dificultad 'media'
+                self.difficulty = 'media'
+            elif self.difficulty == 'media': # Cambio a dificultad 'facil'
+                self.difficulty = 'facil'
+            self.incorrect_streak_counter = 0 # Resetear el contador de racha
 
 def run_quiz():
     print("=" * 80)
