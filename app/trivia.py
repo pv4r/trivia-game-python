@@ -93,28 +93,26 @@ class Quiz:
             self.incorrect_streak_counter = 0 # Resetear el contador de racha
 
 def run_quiz():
-    print("=" * 80)
+    print("=" * 60)
     ascii_art = """
-   ▄▄▄▄▀ █▄▄▄▄ ▄█     ▄   ▄█ ██   
-▀▀▀ █    █  ▄▀ ██      █  ██ █ █  
-    █    █▀▀▌  ██ █     █ ██ █▄▄█ 
-   █     █  █  ▐█  █    █ ▐█ █  █ 
-  ▀        █    ▐   █  █   ▐    █ 
-          ▀          █▐        █  
-                     ▐        ▀    
-"""
+       ▄▄▄▄▀ █▄▄▄▄ ▄█     ▄   ▄█ ██   
+    ▀▀▀ █    █  ▄▀ ██      █  ██ █ █  
+        █    █▀▀▌  ██ █     █ ██ █▄▄█ 
+       █     █  █  ▐█  █    █ ▐█ █  █ 
+      ▀        █    ▐   █  █   ▐    █ 
+              ▀          █▐        █  
+                         ▐        ▀    
+    """
 
     print(ascii_art)
 
-    print("BIENVENIDO AL JUEGO DE TRIVIA!\n")
+    print("BIENVENIDO AL JUEGO!\n")
     print("Responde las siguientes preguntas seleccionando el número de la opción correcta.\n")
     print("Consideraciones:")
     print("1. Si no quieres responder una pregunta, puedes escribir '0' para saltarla.")
     print("2. Si quieres salir del juego, puedes escribir 'q' en cualquier momento.")
-    print("=" * 80)
+    print("=" * 60)
     print()
-    quiz = Quiz()
-
     # Ejemplo de preguntas
     quiz.add_question(Question("¿Cuál es la capital de Francia?", ["Berlín", "Madrid", "París", "Roma"], "París"))
     quiz.add_question(Question("¿Cuál es el océano más grande del mundo?", ["Atlántico", "Índico", "Pacífico", "Ártico"], "Pacífico"))
