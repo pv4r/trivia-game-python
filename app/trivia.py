@@ -258,6 +258,7 @@ def show_results(quiz):
     print(f"Preguntas contestadas: {quiz.questions_answered}")
     print(f"Respuestas correctas: {quiz.correct_answers}")
     print(f"Respuestas incorrectas: {quiz.incorrect_answers}")
+    print(f"Máxima racha de respuestas correctas: {quiz.max_correct_streak}")
 
 if __name__ == "__main__":
     run_quiz()
