@@ -1,15 +1,17 @@
-from typing import Union
-
 from fastapi import FastAPI
+from app.config.settings import settings
 
-app = FastAPI()
+def start_application():
+    app = FastAPI(title=settings.PROJECT_NAME,version=settings.PROJECT_VERSION)
+    return app
+
+
+app = start_application()
 
 
 @app.get("/")
-def read_root():
-    return {"Hello": "World"}
+def home():
+    return {"msg":"Hello FastAPI🚀"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+
