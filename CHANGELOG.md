@@ -37,3 +37,23 @@
 - 987393f: Se integraron los cambios de dificultad segun la racha de respuestas.
 - 53a9504: Nueva linea que muestra la maxima racha de preguntas correctas.
 - 17e2ba8: Solucion al cambio de dificultad en la ultima pregunta.
+
+## [Unreleased]
+### Changed
+- b5a7797: Se elimina el archivo `app/trivia.py` para mover se logica a un submodulo
+- d94f2af: Se agrego healthcheck para db y se creo el servicio quiz para poder ejecutarlo despues
+- 40921e0: Se importan los settings para crear la aplicacion
+### Added
+- 0502fde: Se agrego el paquete psycopg2-binary debido a que sqlalchemy lo necesita como driver
+- 7c7fe50: (Nueva estructura) Creacion de los modulos config,entrypoints, entrypoints/cli, models, repositories, services para mejor distribucion de las funcionalidades
+- 3aeb512: Creacion del archivo `settings.py` para manejar las variables de la aplicacion
+- 6dfb16d: Creacion de session.py para crear la sesion de la base de datos y retornarla
+- 8d00515: Creacion de `base_class.py` que contiene la clase base para los modelos de SQLAlchemy
+- 1a075a5: Creacion de `db_models.py` para manejar el modelo de la tabla de preguntas
+- 81f3c0f: Creacion de `domain.py` que ahora contiene las clases `Question` y `Quiz`
+- f4a60cc: Creacion de `question_repository.py` junto con la clase `QuestionRepository`
+- a81fd9f: Creacion de `question_service.py` con la clase `QuestionService`
+- 15959bd: Creacion de `quiz_service.py` con la clase `QuizService`
+- 8d25acc: Creacion de `run_quiz.py` que contiene la logica de ejecucion del juego
+
+
